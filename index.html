@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>North Ithilien Flower Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card:hover { transform: translateY(-4px); }
+  </style>
+</head>
+<body class="bg-[#F8F5F0] text-[#1F2A2E] min-h-screen">
+
+  <div class="max-w-7xl mx-auto p-6">
+    <header class="flex justify-between items-center mb-10">
+      <div>
+        <h1 class="text-5xl font-light tracking-tight text-[#2E7D32]">North Ithilien</h1>
+        <p class="text-gray-600 mt-1">Flower & Extract Tracker</p>
+      </div>
+      <div id="last-updated" class="text-sm text-gray-500"></div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-3">
+        <div class="bg-white rounded-3xl shadow p-6 sticky top-6">
+          <h2 class="font-semibold text-[#2E7D32] mb-4">Dashboard</h2>
+          <nav class="space-y-1">
+            <a href="#" onclick="showSection('overview')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0] active">Overview</a>
+            <a href="#" onclick="showSection('flower')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower Lookup</a>
+            <a href="#" onclick="showSection('extract')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Extract Lookup</a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="lg:col-span-9 space-y-8">
+
+        <!-- Overview -->
+        <div id="overview-section">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white rounded-3xl p-6 card">
+              <p class="text-sm text-gray-500">Total Flowers</p>
+              <p id="total-flowers" class="text-5xl font-light text-[#2E7D32]">0</p>
+            </div>
+            <div class="bg-white rounded-3xl p-6 card">
+              <p class="text-sm text-gray-500">Total Extracts</p>
+              <p id="total-extracts" class="text-5xl font-light text-[#2E7D32]">0</p>
+            </div>
+            <div class="bg-white rounded-3xl p-6 card">
+              <p class="text-sm text-gray-500">Top Flower</p>
+              <p id="top-flower" class="text-3xl font-light text-[#2E7D32]">—</p>
+            </div>
+            <div class="bg-white rounded-3xl p-6 card">
+              <p class="text-sm text-gray-500">Top Extract</p>
+              <p id="top-extract" class="text-3xl font-light text-[#2E7D32]">—</p>
+            </div>
+          </div>
+
+          <div class="mt-8 bg-white rounded-3xl p-6 card">
+            <h2 class="text-2xl mb-6">Extract Distribution</h2>
+            <div class="max-w-md mx-auto">
+              <canvas id="extractPieChart" height="220"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower Lookup -->
+        <div id="flower-section" class="hidden">
+          <div class="bg-white rounded-3xl p-6 card">
+            <h2 class="text-2xl mb-4">Flower → Extracts</h2>
+            <select id="flower-select" class="w-full max-w-md border border-gray-300 rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#2E7D32]">
+            </select>
+            <div id="flower-results" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            </div>
+          </div>
+        </div>
+
+        <!-- Extract Lookup -->
+        <div id="extract-section" class="hidden">
+          <div class="bg-white rounded-3xl p-6 card">
+            <h2 class="text-2xl mb-4">Extract → Top Flowers</h2>
+            <select id="extract-select" class="w-full max-w-md border border-gray-300 rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#2E7D32]">
+            </select>
+            <div id="extract-results" class="mt-8"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let data = {};
+    let extractChart = null;
+
+    async function loadData() {
+      try {
+        const response = await fetch('data.json');
+        data = await response.json();
+        
+        document.getElementById('last-updated').textContent = `Last updated: ${data.lastUpdated || 'Unknown'}`;
+        
+        // Totals
+        document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
+        document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
+
+        // Top items
+        const topFlowerEntry = Object.entries(data.flowerTotals || {}).sort((a,b) => b[1] - a[1])[0];
+        const topExtractEntry = Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1])[0];
+        if (topFlowerEntry) document.getElementById('top-flower').textContent = topFlowerEntry[0];
+        if (topExtractEntry) document.getElementById('top-extract').textContent = topExtractEntry[0];
+
+        populateDropdowns();
+        renderPieChart();
+
+        // Trigger initial lookup display
+        setTimeout(() => {
+          const flowerSelect = document.getElementById('flower-select');
+          const extractSelect = document.getElementById('extract-select');
+          if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
+          if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
+        }, 100);
+
+      } catch (e) {
+        console.error(e);
+        alert("Could not load data.json. Make sure it's in the same folder as index.html");
+      }
+    }
+
+    function populateDropdowns() {
+      const flowerSelect = document.getElementById('flower-select');
+      const extractSelect = document.getElementById('extract-select');
+
+      Object.keys(data.flowerTotals || {}).forEach(flower => {
+        const opt = document.createElement('option');
+        opt.value = flower;
+        opt.textContent = flower;
+        flowerSelect.appendChild(opt);
+      });
+
+      Object.keys(data.extractTotals || {}).forEach(extract => {
+        const opt = document.createElement('option');
+        opt.value = extract;
+        opt.textContent = extract;
+        extractSelect.appendChild(opt);
+      });
+
+      flowerSelect.onchange = () => showFlowerResults(flowerSelect.value);
+      extractSelect.onchange = () => showExtractResults(extractSelect.value);
+    }
+
+    function renderPieChart() {
+      const ctx = document.getElementById('extractPieChart');
+      if (extractChart) extractChart.destroy();
+
+      extractChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(data.extractTotals || {}),
+          datasets: [{
+            data: Object.values(data.extractTotals || {}),
+            backgroundColor: ['#4CAF50', '#D32F2F', '#8D6E63', '#1976D2', '#FF9800', '#9C27B0']
+          }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+      });
+    }
+
+    function showFlowerResults(flower) {
+      const container = document.getElementById('flower-results');
+      container.innerHTML = '';
+      const logs = data.parsedLogs.filter(l => l.flower === flower);
+      const byExtract = {};
+      logs.forEach(log => byExtract[log.extract] = (byExtract[log.extract] || 0) + log.quantity);
+
+      Object.entries(byExtract).forEach(([extract, qty]) => {
+        const div = document.createElement('div');
+        div.className = "bg-[#F0F4F0] p-5 rounded-2xl";
+        div.innerHTML = `<p class="font-medium">${extract}</p><p class="text-3xl font-light">${qty}</p>`;
+        container.appendChild(div);
+      });
+    }
+
+    function showExtractResults(extract) {
+      const container = document.getElementById('extract-results');
+      container.innerHTML = `<h3 class="font-medium mb-4">Top Flowers for ${extract}</h3>`;
+      const logs = data.parsedLogs.filter(l => l.extract === extract);
+      const byFlower = {};
+      logs.forEach(log => byFlower[log.flower] = (byFlower[log.flower] || 0) + log.quantity);
+
+      const sorted = Object.entries(byFlower).sort((a,b) => b[1] - a[1]).slice(0,5);
+      let html = '<div class="space-y-3">';
+      sorted.forEach(([flower, qty], i) => {
+        html += `<div class="flex justify-between bg-white p-4 rounded-2xl"><span>${i+1}. ${flower}</span><span class="font-medium">${qty}</span></div>`;
+      });
+      html += '</div>';
+      container.innerHTML += html;
+    }
+
+    function showSection(section) {
+      document.querySelectorAll('[id$="-section"]').forEach(el => el.classList.add('hidden'));
+      document.getElementById(section + '-section').classList.remove('hidden');
+    }
+
+    window.onload = loadData;
+  </script>
+</body>
+</html>
