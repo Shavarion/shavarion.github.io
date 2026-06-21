@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>North Ithilien Flower Tracker</title>
+  <title>Shav's North Ithilien Flower Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; }
+    body { 
+      font-family: system-ui, -apple-system, sans-serif; 
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(1,1,1,0.7)), 
+                  url('background.jpg') center/cover fixed;
+      background-color: #F8F5F0;
+    }
     .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .card:hover { transform: translateY(-4px); }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background-color: #f0f4f0; font-weight: 600; }
   </style>
 </head>
-<body class="bg-[#F8F5F0] text-[#1F2A2E] min-h-screen">
+<body class="text-[#1F2A2E] min-h-screen">
 
   <div class="max-w-7xl mx-auto p-6">
     <header class="flex justify-between items-center mb-10">
       <div>
-        <h1 class="text-5xl font-light tracking-tight text-[#2E7D32]">North Ithilien</h1>
-        <p class="text-gray-600 mt-1">Flower & Extract Tracker</p>
+        <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]">North Ithilien</h1>
+        <p class="text-gray-600 mt-1">Shav's Flower & Extract Tracker</p>
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
     </header>
@@ -27,12 +35,13 @@
 
       <!-- Sidebar -->
       <div class="lg:col-span-3">
-        <div class="bg-white rounded-3xl shadow p-6 sticky top-6">
+        <div class="bg-white/90 backdrop-blur-md rounded-3xl shadow p-6 sticky top-6">
           <h2 class="font-semibold text-[#2E7D32] mb-4">Dashboard</h2>
           <nav class="space-y-1">
-            <a href="#" onclick="showSection('overview')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0] active">Overview</a>
+            <a href="#" onclick="showSection('overview')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Overview</a>
             <a href="#" onclick="showSection('flower')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower Lookup</a>
             <a href="#" onclick="showSection('extract')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Extract Lookup</a>
+            <a href="#" onclick="showSection('stats')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower and Extract Stats</a>
           </nav>
         </div>
       </div>
@@ -43,25 +52,25 @@
         <!-- Overview -->
         <div id="overview-section">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white rounded-3xl p-6 card">
+            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
               <p class="text-sm text-gray-500">Total Flowers</p>
               <p id="total-flowers" class="text-5xl font-light text-[#2E7D32]">0</p>
             </div>
-            <div class="bg-white rounded-3xl p-6 card">
+            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
               <p class="text-sm text-gray-500">Total Extracts</p>
               <p id="total-extracts" class="text-5xl font-light text-[#2E7D32]">0</p>
             </div>
-            <div class="bg-white rounded-3xl p-6 card">
+            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
               <p class="text-sm text-gray-500">Top Flower</p>
               <p id="top-flower" class="text-3xl font-light text-[#2E7D32]">—</p>
             </div>
-            <div class="bg-white rounded-3xl p-6 card">
+            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
               <p class="text-sm text-gray-500">Top Extract</p>
               <p id="top-extract" class="text-3xl font-light text-[#2E7D32]">—</p>
             </div>
           </div>
 
-          <div class="mt-8 bg-white rounded-3xl p-6 card">
+          <div class="mt-8 bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
             <h2 class="text-2xl mb-6">Extract Distribution</h2>
             <div class="max-w-md mx-auto">
               <canvas id="extractPieChart" height="220"></canvas>
@@ -71,7 +80,7 @@
 
         <!-- Flower Lookup -->
         <div id="flower-section" class="hidden">
-          <div class="bg-white rounded-3xl p-6 card">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
             <h2 class="text-2xl mb-4">Flower → Extracts</h2>
             <select id="flower-select" class="w-full max-w-md border border-gray-300 rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#2E7D32]">
             </select>
@@ -82,11 +91,23 @@
 
         <!-- Extract Lookup -->
         <div id="extract-section" class="hidden">
-          <div class="bg-white rounded-3xl p-6 card">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
             <h2 class="text-2xl mb-4">Extract → Top Flowers</h2>
             <select id="extract-select" class="w-full max-w-md border border-gray-300 rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#2E7D32]">
             </select>
             <div id="extract-results" class="mt-8"></div>
+          </div>
+        </div>
+
+        <!-- Flower and Extract Stats -->
+        <div id="stats-section" class="hidden">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
+            <h2 class="text-2xl mb-4">Flower and Extract Stats</h2>
+            <div class="flex gap-4 mb-4">
+              <button onclick="showStats('flower')" class="px-5 py-2 bg-[#2E7D32] text-white rounded-xl">By Flower</button>
+              <button onclick="showStats('extract')" class="px-5 py-2 bg-[#2E7D32] text-white rounded-xl">By Extract</button>
+            </div>
+            <div id="stats-table" class="overflow-x-auto"></div>
           </div>
         </div>
 
@@ -114,6 +135,7 @@
 
         populateDropdowns();
         renderPieChart();
+        showStats('flower');
       } catch (e) {
         console.error(e);
         alert("Could not load data.json. Make sure it's in the same folder as index.html");
@@ -141,11 +163,10 @@
       flowerSelect.onchange = () => showFlowerResults(flowerSelect.value);
       extractSelect.onchange = () => showExtractResults(extractSelect.value);
 
-      // Trigger initial display for default selections
       setTimeout(() => {
         if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
         if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
-      }, 200);
+      }, 100);
     }
 
     function renderPieChart() {
@@ -194,6 +215,26 @@
       });
       html += '</div>';
       container.innerHTML += html;
+    }
+
+    function showStats(mode) {
+      const container = document.getElementById('stats-table');
+      let html = '<table class="w-full text-sm"><thead><tr>';
+
+      if (mode === 'flower') {
+        html += '<th>Flower</th><th>Total Extracts</th></tr></thead><tbody>';
+        Object.entries(data.flowerTotals || {}).sort((a,b) => b[1] - a[1]).forEach(([flower, qty]) => {
+          html += `<tr><td class="font-medium">${flower}</td><td>${qty}</td></tr>`;
+        });
+      } else {
+        html += '<th>Extract</th><th>Total Extracts</th></tr></thead><tbody>';
+        Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1]).forEach(([extract, qty]) => {
+          html += `<tr><td class="font-medium">${extract}</td><td>${qty}</td></tr>`;
+        });
+      }
+
+      html += '</tbody></table>';
+      container.innerHTML = html;
     }
 
     function showSection(section) {
