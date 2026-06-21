@@ -7,9 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    body { 
-      font-family: system-ui, -apple-system, sans-serif; 
-      background: linear-gradient(rgba(255,255,255,0.9), rgba(1,1,1,0.7)), 
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(1,1,1,0.7)),
                   url('background.jpg') center/cover fixed;
       background-color: #F8F5F0;
     }
@@ -21,7 +21,6 @@
   </style>
 </head>
 <body class="text-[#1F2A2E] min-h-screen">
-
   <div class="max-w-7xl mx-auto p-6">
     <header class="flex justify-between items-center mb-10">
       <div>
@@ -30,9 +29,7 @@
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
     </header>
-
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
       <!-- Sidebar -->
       <div class="lg:col-span-3">
         <div class="bg-white/90 backdrop-blur-md rounded-3xl shadow p-6 sticky top-6">
@@ -45,10 +42,8 @@
           </nav>
         </div>
       </div>
-
       <!-- Main Content -->
       <div class="lg:col-span-9 space-y-8">
-
         <!-- Overview -->
         <div id="overview-section">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -69,7 +64,6 @@
               <p id="top-extract" class="text-3xl font-light text-[#2E7D32]">—</p>
             </div>
           </div>
-
           <div class="mt-8 bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
             <h2 class="text-2xl mb-6">Extract Distribution</h2>
             <div class="max-w-md mx-auto">
@@ -110,7 +104,6 @@
             <div id="stats-table" class="overflow-x-auto"></div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -179,7 +172,11 @@
           labels: Object.keys(data.extractTotals || {}),
           datasets: [{
             data: Object.values(data.extractTotals || {}),
-            backgroundColor: ['#4CAF50', '#D32F2F', '#8D6E63', '#1976D2', '#FF9800', '#9C27B0']
+            backgroundColor: [
+              '#4CAF50', '#D32F2F', '#8D6E63', '#1976D2', '#FF9800', 
+              '#9C27B0', '#00BCD4', '#FFC107', '#3F51B5', '#E91E63',
+              '#607D8B', '#FF5722', '#009688', '#673AB7'
+            ]
           }]
         },
         options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
