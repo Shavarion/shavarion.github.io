@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>North Ithilien Flower Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; }
     .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -99,36 +99,36 @@
     let extractChart = null;
 
     async function loadData() {
+      console.log("Attempting to fetch data.json...");
       try {
         const response = await fetch('data.json');
-        data = await response.json();
-        
+        console.log("Fetch status:", response.status, "OK:", response.ok);
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const text = await response.text();
+        console.log("Raw response text length:", text.length);
+
+        data = JSON.parse(text);
+        console.log("JSON parsed successfully. Keys:", Object.keys(data));
+
+        // Update UI
         document.getElementById('last-updated').textContent = `Last updated: ${data.lastUpdated || 'Unknown'}`;
-        
-        // Totals
         document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
         document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
 
-        // Top items
-        const topFlowerEntry = Object.entries(data.flowerTotals || {}).sort((a,b) => b[1] - a[1])[0];
-        const topExtractEntry = Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1])[0];
-        if (topFlowerEntry) document.getElementById('top-flower').textContent = topFlowerEntry[0];
-        if (topExtractEntry) document.getElementById('top-extract').textContent = topExtractEntry[0];
+        const topFlower = Object.entries(data.flowerTotals || {}).sort((a,b) => b[1] - a[1])[0];
+        const topExtract = Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1])[0];
+        if (topFlower) document.getElementById('top-flower').textContent = topFlower[0];
+        if (topExtract) document.getElementById('top-extract').textContent = topExtract[0];
 
         populateDropdowns();
         renderPieChart();
 
-        // Trigger initial lookup display
-        setTimeout(() => {
-          const flowerSelect = document.getElementById('flower-select');
-          const extractSelect = document.getElementById('extract-select');
-          if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
-          if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
-        }, 100);
-
+        console.log("✅ Dashboard loaded successfully");
       } catch (e) {
-        console.error(e);
-        alert("Could not load data.json. Make sure it's in the same folder as index.html");
+        console.error("Error loading data:", e);
+        alert("Failed to load data.json\n\nError: " + e.message + "\n\nCheck console (F12) for details.");
       }
     }
 
