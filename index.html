@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>North Ithilien Flower Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; }
     .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -99,20 +99,10 @@
     let extractChart = null;
 
     async function loadData() {
-      console.log("Attempting to fetch data.json...");
       try {
         const response = await fetch('data.json');
-        console.log("Fetch status:", response.status, "OK:", response.ok);
-
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-        const text = await response.text();
-        console.log("Raw response text length:", text.length);
-
-        data = JSON.parse(text);
-        console.log("JSON parsed successfully. Keys:", Object.keys(data));
-
-        // Update UI
+        data = await response.json();
+        
         document.getElementById('last-updated').textContent = `Last updated: ${data.lastUpdated || 'Unknown'}`;
         document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
         document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
@@ -124,11 +114,9 @@
 
         populateDropdowns();
         renderPieChart();
-
-        console.log("✅ Dashboard loaded successfully");
       } catch (e) {
-        console.error("Error loading data:", e);
-        alert("Failed to load data.json\n\nError: " + e.message + "\n\nCheck console (F12) for details.");
+        console.error(e);
+        alert("Could not load data.json. Make sure it's in the same folder as index.html");
       }
     }
 
@@ -152,6 +140,12 @@
 
       flowerSelect.onchange = () => showFlowerResults(flowerSelect.value);
       extractSelect.onchange = () => showExtractResults(extractSelect.value);
+
+      // Trigger initial display for default selections
+      setTimeout(() => {
+        if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
+        if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
+      }, 200);
     }
 
     function renderPieChart() {
