@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21",
+  "lastUpdated": "2026-06-22",
   "parsedLogs": [
     {
       "timestamp": "2026-06-07T14:23:48.000Z",
@@ -5712,21 +5712,741 @@
       "flower": "Mournweed",
       "extract": "Golden",
       "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Amber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-21T04:46:15.000Z",
+      "flower": "Mournweed",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:03:07.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:03:14.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:03:25.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:03:31.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:03:40.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:03:47.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:03:53.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:04:03.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:04:09.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:04:45.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:04:57.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:05:31.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:05:36.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:05:46.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:06:01.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:06:27.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:06:34.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:06:42.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:06:50.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:06:56.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:07:03.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:07:12.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:07:37.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:07:47.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:07:55.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:08:07.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:08:21.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:08:33.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:08:56.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:09:45.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:10:02.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:10:25.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:10:35.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:10:41.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:10:56.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:11:07.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:11:16.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:11:32.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:11:45.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:11:55.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:12:03.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:12:24.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:12:33.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:12:39.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:12:49.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:13:01.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:13:09.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:13:38.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:13:44.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:13:50.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:14:12.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:14:17.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:14:26.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:14:36.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:14:47.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:14:53.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:15:01.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:15:07.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:15:17.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 4
+    },
+    {
+      "timestamp": "2026-06-22T00:15:24.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:15:34.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:15:41.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:15:51.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:15:58.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:16:07.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:16:23.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:16:30.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:16:39.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:16:46.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:16:57.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:17:05.000Z",
+      "flower": "Eye-of-Night",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:17:33.000Z",
+      "flower": "Mournweed",
+      "extract": "Golden",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:17:41.000Z",
+      "flower": "Evengleam",
+      "extract": "Golden",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:06.000Z",
+      "flower": "Bonemallow",
+      "extract": "Violet",
+      "quantity": 2
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Violet",
+      "quantity": 3
     }
   ],
   "flowerTotals": {
     "Bell-o-Dale": 81,
-    "Bonemallow": 11,
+    "Bonemallow": 20,
     "Buckthorn": 26,
     "Drakewort": 4,
-    "Dusknettle": 11,
+    "Dusknettle": 22,
     "Dwarfsbeard": 19,
     "Elfspear": 45,
-    "Evengleam": 15,
-    "Eye-of-Night": 57,
+    "Evengleam": 29,
+    "Eye-of-Night": 77,
     "Horsetail": 145,
     "Larkspur": 204,
-    "Mournweed": 13,
+    "Mournweed": 79,
     "Oxlip": 229,
     "Rock-rose": 26,
     "Southron's Crown": 5,
@@ -5734,14 +6454,14 @@
     "Wraithscowl": 6
   },
   "extractTotals": {
-    "Verdant": 596,
-    "Umber": 628,
+    "Verdant": 609,
+    "Umber": 646,
     "Sapphire": 13,
-    "Crimson": 298,
-    "Amber": 9,
-    "Golden": 82,
-    "Violet": 69
+    "Crimson": 311,
+    "Amber": 10,
+    "Golden": 199,
+    "Violet": 122
   },
-  "totalFlowers": 952,
-  "totalExtracts": 1695
+  "totalFlowers": 1072,
+  "totalExtracts": 1910
 }
