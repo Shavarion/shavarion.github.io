@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22",
+  "lastUpdated": "06-24-2026",
   "parsedLogs": [
     {
       "timestamp": "2026-06-07T14:23:48.000Z",
@@ -6435,27 +6435,27 @@
     }
   ],
   "flowerTotals": {
+    "Oxlip": 229,
+    "Larkspur": 204,
+    "Horsetail": 145,
     "Bell-o-Dale": 81,
-    "Bonemallow": 20,
-    "Buckthorn": 26,
-    "Drakewort": 4,
-    "Dusknettle": 22,
-    "Dwarfsbeard": 19,
+    "Mournweed": 79,
+    "Eye-of-Night": 77,
+    "Vetchling": 55,
     "Elfspear": 45,
     "Evengleam": 29,
-    "Eye-of-Night": 77,
-    "Horsetail": 145,
-    "Larkspur": 204,
-    "Mournweed": 79,
-    "Oxlip": 229,
+    "Buckthorn": 26,
     "Rock-rose": 26,
+    "Dusknettle": 22,
+    "Bonemallow": 20,
+    "Dwarfsbeard": 19,
+    "Wraithscowl": 6,
     "Southron's Crown": 5,
-    "Vetchling": 55,
-    "Wraithscowl": 6
+    "Drakewort": 4
   },
   "extractTotals": {
-    "Verdant": 609,
     "Umber": 646,
+    "Verdant": 609,
     "Crimson": 311,
     "Golden": 199,
     "Violet": 122,
