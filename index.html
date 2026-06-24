@@ -24,7 +24,7 @@
   <div class="max-w-7xl mx-auto p-6">
     <header class="flex justify-between items-center mb-10">
       <div>
-        <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]">North Ithilien</h1>
+        <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]"><a href="/">North Ithilien</a></h1>
         <p class="text-gray-600 mt-1">Shav's Flower & Extract Tracker</p>
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
@@ -117,7 +117,7 @@
         const response = await fetch('data.json');
         data = await response.json();
         
-        document.getElementById('last-updated').textContent = `Last updated: ${data.lastUpdated || 'Unknown'}`;
+        document.getElementById('last-updated').textContent = `Data last updated: ${data.lastUpdated || 'Unknown'}`;
         document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
         document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
 
@@ -131,7 +131,7 @@
         showStats('flower');
       } catch (e) {
         console.error(e);
-        alert("Could not load data.json. Make sure it's in the same folder as index.html");
+        alert("Could not load data.json");
       }
     }
 
