@@ -25,7 +25,7 @@
     <header class="flex justify-between items-center mb-10">
       <div>
         <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]"><a href="/">North Ithilien</a></h1>
-        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.0.7e</p>
+        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.0.7j</p>
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
     </header>
@@ -33,7 +33,7 @@
       <!-- Sidebar -->
       <div class="lg:col-span-3">
         <div class="bg-white/90 backdrop-blur-md rounded-3xl shadow p-6 sticky top-6">
-          <h2 class="font-semibold text-[#2E7D32] mb-4">Dashboard</h2>
+          <h2 class="font-semibold text-[#2E7D32] mb-4">Vibe coded by Shav</h2>
           <nav class="space-y-1">
             <a href="#" onclick="showSection('overview')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Overview</a>
             <a href="#" onclick="showSection('flower')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower Lookup</a>
@@ -109,137 +109,144 @@
   </div>
 
   <script>
-    let data = {};
-    let extractChart = null;
+  let data = {};
+  let extractChart = null;
 
-    async function loadData() {
-      try {
-        const response = await fetch('data.json');
-        data = await response.json();
-        
-        document.getElementById('last-updated').textContent = `Data last updated: ${data.lastUpdated || 'Unknown'}`;
-        document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
-        document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
+  async function loadData() {
+    try {
+      const response = await fetch('data.json');
+      data = await response.json();
+      
+      document.getElementById('last-updated').textContent = `Data last updated: ${data.lastUpdated || 'Unknown'}`;
+      document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
+      document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
 
-        const topFlower = Object.entries(data.flowerTotals || {}).sort((a,b) => b[1] - a[1])[0];
-        const topExtract = Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1])[0];
-        if (topFlower) document.getElementById('top-flower').textContent = topFlower[0];
-        if (topExtract) document.getElementById('top-extract').textContent = topExtract[0];
+      // Most Picked Flower — exclude Basket
+      let flowerEntries = Object.entries(data.flowerTotals || {});
+      flowerEntries = flowerEntries.filter(([name]) => name !== 'Basket');
+      
+      const topFlower = flowerEntries.sort((a,b) => b[1] - a[1])[0];
+      const topExtract = Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1])[0];
 
-        populateDropdowns();
-        renderPieChart();
-        showStats('flower');
-      } catch (e) {
-        console.error(e);
-        alert("Could not load data.json");
-      }
+      if (topFlower) document.getElementById('top-flower').textContent = topFlower[0];
+      if (topExtract) document.getElementById('top-extract').textContent = topExtract[0];
+
+      populateDropdowns();
+      renderPieChart();
+      showStats('flower');
+    } catch (e) {
+      console.error(e);
+      alert("Could not load data.json");
     }
+  }
 
-    function populateDropdowns() {
-      const flowerSelect = document.getElementById('flower-select');
-      const extractSelect = document.getElementById('extract-select');
+  function populateDropdowns() {
+    const flowerSelect = document.getElementById('flower-select');
+    const extractSelect = document.getElementById('extract-select');
 
-      Object.keys(data.flowerTotals || {}).forEach(flower => {
-        const opt = document.createElement('option');
-        opt.value = flower;
-        opt.textContent = flower;
-        flowerSelect.appendChild(opt);
-      });
+    Object.keys(data.flowerTotals || {}).forEach(flower => {
+      const opt = document.createElement('option');
+      opt.value = flower;
+      opt.textContent = flower;
+      flowerSelect.appendChild(opt);
+    });
 
-      Object.keys(data.extractTotals || {}).forEach(extract => {
-        const opt = document.createElement('option');
-        opt.value = extract;
-        opt.textContent = extract;
-        extractSelect.appendChild(opt);
-      });
+    Object.keys(data.extractTotals || {}).forEach(extract => {
+      const opt = document.createElement('option');
+      opt.value = extract;
+      opt.textContent = extract;
+      extractSelect.appendChild(opt);
+    });
 
-      flowerSelect.onchange = () => showFlowerResults(flowerSelect.value);
-      extractSelect.onchange = () => showExtractResults(extractSelect.value);
+    flowerSelect.onchange = () => showFlowerResults(flowerSelect.value);
+    extractSelect.onchange = () => showExtractResults(extractSelect.value);
 
-      setTimeout(() => {
-        if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
-        if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
-      }, 100);
-    }
+    setTimeout(() => {
+      if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
+      if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
+    }, 100);
+  }
 
-    function renderPieChart() {
-      const ctx = document.getElementById('extractPieChart');
-      if (extractChart) extractChart.destroy();
+  function renderPieChart() {
+    const ctx = document.getElementById('extractPieChart');
+    if (extractChart) extractChart.destroy();
 
-      extractChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: Object.keys(data.extractTotals || {}),
-          datasets: [{
-            data: Object.values(data.extractTotals || {}),
-            backgroundColor: [
-              '#4CAF50', '#D32F2F', '#8D6E63', '#1976D2', '#FF9800', 
-              '#9C27B0', '#00BCD4', '#FFC107', '#3F51B5', '#E91E63',
-              '#607D8B', '#FF5722', '#009688', '#673AB7'
-            ]
-          }]
-        },
-        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-      });
-    }
+    extractChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: Object.keys(data.extractTotals || {}),
+        datasets: [{
+          data: Object.values(data.extractTotals || {}),
+          backgroundColor: [
+            '#4CAF50', '#D32F2F', '#8D6E63', '#1976D2', '#FF9800',
+            '#9C27B0', '#00BCD4', '#FFC107', '#3F51B5', '#E91E63',
+            '#607D8B', '#FF5722', '#009688', '#673AB7'
+          ]
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    });
+  }
 
-    function showFlowerResults(flower) {
-      const container = document.getElementById('flower-results');
-      container.innerHTML = '';
-      const logs = data.parsedLogs.filter(l => l.flower === flower);
-      const byExtract = {};
-      logs.forEach(log => byExtract[log.extract] = (byExtract[log.extract] || 0) + log.quantity);
+  function showFlowerResults(flower) {
+    const container = document.getElementById('flower-results');
+    container.innerHTML = '';
+    const logs = data.parsedLogs.filter(l => l.flower === flower);
+    const byExtract = {};
+    logs.forEach(log => byExtract[log.extract] = (byExtract[log.extract] || 0) + log.quantity);
 
-      Object.entries(byExtract).forEach(([extract, qty]) => {
-        const div = document.createElement('div');
-        div.className = "bg-[#F0F4F0] p-5 rounded-2xl";
-        div.innerHTML = `<p class="font-medium">${extract}</p><p class="text-3xl font-light">${qty}</p>`;
-        container.appendChild(div);
-      });
-    }
+    Object.entries(byExtract).forEach(([extract, qty]) => {
+      const div = document.createElement('div');
+      div.className = "bg-[#F0F4F0] p-5 rounded-2xl";
+      div.innerHTML = `<p class="font-medium">${extract}</p><p class="text-3xl font-light">${qty}</p>`;
+      container.appendChild(div);
+    });
+  }
 
-    function showExtractResults(extract) {
-      const container = document.getElementById('extract-results');
-      container.innerHTML = `<h3 class="font-medium mb-4">Top Flowers for ${extract}</h3>`;
-      const logs = data.parsedLogs.filter(l => l.extract === extract);
-      const byFlower = {};
-      logs.forEach(log => byFlower[log.flower] = (byFlower[log.flower] || 0) + log.quantity);
+  function showExtractResults(extract) {
+    const container = document.getElementById('extract-results');
+    container.innerHTML = `<h3 class="font-medium mb-4">Top Flowers for ${extract}</h3>`;
+    const logs = data.parsedLogs.filter(l => l.extract === extract);
+    const byFlower = {};
+    logs.forEach(log => byFlower[log.flower] = (byFlower[log.flower] || 0) + log.quantity);
 
-      const sorted = Object.entries(byFlower).sort((a,b) => b[1] - a[1]).slice(0,5);
-      let html = '<div class="space-y-3">';
-      sorted.forEach(([flower, qty], i) => {
-        html += `<div class="flex justify-between bg-white p-4 rounded-2xl"><span>${i+1}. ${flower}</span><span class="font-medium">${qty}</span></div>`;
-      });
-      html += '</div>';
-      container.innerHTML += html;
-    }
+    const sorted = Object.entries(byFlower).sort((a,b) => b[1] - a[1]).slice(0,5);
+    let html = '<div class="space-y-3">';
+    sorted.forEach(([flower, qty], i) => {
+      html += `<div class="flex justify-between bg-white p-4 rounded-2xl"><span>${i+1}. ${flower}</span><span class="font-medium">${qty}</span></div>`;
+    });
+    html += '</div>';
+    container.innerHTML += html;
+  }
 
-    function showStats(mode) {
-      const container = document.getElementById('stats-table');
-      let html = '<table class="w-full text-sm"><thead><tr>';
+  function showStats(mode) {
+    const container = document.getElementById('stats-table');
+    let html = '<table class="w-full text-sm"><thead><tr>';
 
-      if (mode === 'flower') {
-        html += '<th>Flower</th><th>Total Extracts</th></tr></thead><tbody>';
-        Object.entries(data.flowerTotals || {}).sort((a,b) => b[1] - a[1]).forEach(([flower, qty]) => {
+    if (mode === 'flower') {
+      html += '<th>Flower</th><th>Total Extracts</th></tr></thead><tbody>';
+      Object.entries(data.flowerTotals || {})
+        .sort((a,b) => b[1] - a[1])
+        .forEach(([flower, qty]) => {
           html += `<tr><td class="font-medium">${flower}</td><td>${qty}</td></tr>`;
         });
-      } else {
-        html += '<th>Extract</th><th>Total Extracts</th></tr></thead><tbody>';
-        Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1]).forEach(([extract, qty]) => {
-          html += `<tr><td class="font-medium">${extract}</td><td>${qty}</td></tr>`;
-        });
-      }
-
-      html += '</tbody></table>';
-      container.innerHTML = html;
+    } else {
+      html += '<th>Extract</th><th>Total Extracts</th></tr></thead><tbody>';
+      Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1]).forEach(([extract, qty]) => {
+        html += `<tr><td class="font-medium">${extract}</td><td>${qty}</td></tr>`;
+      });
     }
 
-    function showSection(section) {
-      document.querySelectorAll('[id$="-section"]').forEach(el => el.classList.add('hidden'));
-      document.getElementById(section + '-section').classList.remove('hidden');
-    }
+    html += '</tbody></table>';
+    container.innerHTML = html;
+  }
 
-    window.onload = loadData;
-  </script>
+  function showSection(section) {
+    document.querySelectorAll('[id$="-section"]').forEach(el => el.classList.add('hidden'));
+    document.getElementById(section + '-section').classList.remove('hidden');
+  }
+
+  window.onload = loadData;
+</script>
 </body>
 </html>
