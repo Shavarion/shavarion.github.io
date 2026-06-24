@@ -6456,11 +6456,11 @@
   "extractTotals": {
     "Verdant": 609,
     "Umber": 646,
-    "Sapphire": 13,
     "Crimson": 311,
-    "Amber": 10,
     "Golden": 199,
-    "Violet": 122
+    "Violet": 122,
+    "Sapphire": 13,
+    "Amber": 10
   },
   "totalFlowers": 1072,
   "totalExtracts": 1910
