@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "06-24-2026",
+  "lastUpdated": "07-09-2026",
   "parsedLogs": [
     {
       "timestamp": "2026-06-07T14:23:48.000Z",
@@ -7044,6 +7044,546 @@
       "flower": "Dusknettle",
       "extract": "Violet",
       "quantity": 3
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Sapphire",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Amber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Amber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Amber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Amber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Crimson",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Sapphire",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Verdant",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
+    },
+    {
+      "timestamp": "2026-06-22T00:18:13.000Z",
+      "flower": "Dusknettle",
+      "extract": "Umber",
+      "quantity": 1
     }
   ],
   "flowerTotals": {
@@ -7051,6 +7591,7 @@
     "Oxlip": 227,
     "Larkspur": 188,
     "Horsetail": 133,
+    "Dusknettle": 106,
     "Bell-o-Dale": 69,
     "Mournweed": 56,
     "Vetchling": 49,
@@ -7060,20 +7601,19 @@
     "Buckthorn": 26,
     "Rock-rose": 21,
     "Bonemallow": 18,
-    "Dusknettle": 16,
     "Dwarfsbeard": 14,
     "Drakewort": 4,
     "Southron's Crown": 2
   },
   "extractTotals": {
-    "Umber": 658,
-    "Verdant": 620,
-    "Crimson": 330,
+    "Umber": 681,
+    "Verdant": 648,
+    "Crimson": 363,
     "Golden": 272,
     "Violet": 145,
-    "Sapphire": 14,
-    "Amber": 12
+    "Sapphire": 16,
+    "Amber": 16
   },
-  "totalFlowers": 935,
-  "totalExtracts": 2051
+  "totalFlowers": 1025,
+  "totalExtracts": 2141
 }
