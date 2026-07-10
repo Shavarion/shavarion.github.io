@@ -4,28 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shav's North Ithilien Flower Tracker</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: linear-gradient(rgba(255,255,255,0.9), rgba(1,1,1,0.7)),
-                  url('background.jpg') center/cover fixed;
-      background-color: #F8F5F0;
-    }
-    .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .card:hover { transform: translateY(-4px); }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #ddd; }
-    th { background-color: #f0f4f0; font-weight: 600; }
-  </style>
 </head>
 <body class="text-[#1F2A2E] min-h-screen">
   <div class="max-w-7xl mx-auto p-6">
     <header class="flex justify-between items-center mb-10">
       <div>
         <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]"><a href="/">North Ithilien</a></h1>
-        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.0.7j</p>
+        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.1.2c</p>
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
     </header>
@@ -39,32 +26,34 @@
             <a href="#" onclick="showSection('flower')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower Lookup</a>
             <a href="#" onclick="showSection('extract')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Extract Lookup</a>
             <a href="#" onclick="showSection('stats')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower and Extract Stats</a>
+            <a href="#" onclick="showSection('heatmap')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Wastes Heatmap</a>
           </nav>
         </div>
       </div>
-      <!-- Main Content -->
-      <div class="lg:col-span-9 space-y-8">
+
+      <!-- Main content -->
+      <div class="lg:col-span-9">
         <!-- Overview -->
         <div id="overview-section">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
-              <p class="text-sm text-gray-500">Total Flowers Picked</p>
-              <p id="total-flowers" class="text-5xl font-light text-[#2E7D32]">0</p>
+            <div class="stat-box bg-white/90 backdrop-blur-md rounded-3xl">
+              <p class="stat-label text-sm text-gray-500">Total Flowers Picked</p>
+              <p id="total-flowers" class="stat-value text-5xl font-light text-[#2E7D32]">0</p>
             </div>
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
-              <p class="text-sm text-gray-500">Total Extracts Recieved</p>
-              <p id="total-extracts" class="text-5xl font-light text-[#2E7D32]">0</p>
+            <div class="stat-box bg-white/90 backdrop-blur-md rounded-3xl">
+              <p class="stat-label text-sm text-gray-500">Total Extracts Received</p>
+              <p id="total-extracts" class="stat-value text-5xl font-light text-[#2E7D32]">0</p>
             </div>
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
-              <p class="text-sm text-gray-500">Most Picked Flower</p>
-              <p id="top-flower" class="text-3xl font-light text-[#2E7D32]">—</p>
+            <div class="stat-box bg-white/90 backdrop-blur-md rounded-3xl">
+              <p class="stat-label text-sm text-gray-500">Most Picked Flower</p>
+              <p id="top-flower" class="stat-value text-3xl font-light text-[#2E7D32]">—</p>
             </div>
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
-              <p class="text-sm text-gray-500">Top Extract Received</p>
-              <p id="top-extract" class="text-3xl font-light text-[#2E7D32]">—</p>
+            <div class="stat-box bg-white/90 backdrop-blur-md rounded-3xl">
+              <p class="stat-label text-sm text-gray-500">Top Extract Received</p>
+              <p id="top-extract" class="stat-value text-3xl font-light text-[#2E7D32]">—</p>
             </div>
           </div>
-          <div class="mt-8 bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
+          <div class="mt-8 bg-white/90 backdrop-blur-md rounded-3xl p-6">
             <h2 class="text-2xl mb-6">Extract Distribution</h2>
             <div class="max-w-md mx-auto">
               <canvas id="extractPieChart" height="220"></canvas>
@@ -74,7 +63,7 @@
 
         <!-- Flower Lookup -->
         <div id="flower-section" class="hidden">
-          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6">
             <h2 class="text-2xl mb-4">Flower → Extracts</h2>
             <select id="flower-select" class="w-full max-w-md border border-gray-300 rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#2E7D32]">
             </select>
@@ -85,7 +74,7 @@
 
         <!-- Extract Lookup -->
         <div id="extract-section" class="hidden">
-          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6">
             <h2 class="text-2xl mb-4">Extract → Top Flowers</h2>
             <select id="extract-select" class="w-full max-w-md border border-gray-300 rounded-2xl px-5 py-4 text-lg focus:outline-none focus:border-[#2E7D32]">
             </select>
@@ -95,7 +84,7 @@
 
         <!-- Flower and Extract Stats -->
         <div id="stats-section" class="hidden">
-          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 card">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6">
             <h2 class="text-2xl mb-4">Flower and Extract Stats</h2>
             <div class="flex gap-4 mb-4">
               <button onclick="showStats('flower')" class="px-5 py-2 bg-[#2E7D32] text-white rounded-xl">By Flower</button>
@@ -104,29 +93,83 @@
             <div id="stats-table" class="overflow-x-auto"></div>
           </div>
         </div>
+
+        <!-- Wastes Heatmap -->
+        <div id="heatmap-section" class="hidden">
+          <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6">
+            <h2 class="text-3xl font-bold mb-6 text-center text-[#2E7D32]">The Wastes - Flower Density Heatmap</h2>
+
+            <div class="map-container mx-auto max-w-[900px]" id="map-container">
+              <img id="map-img" src="Wastes_map.jpg" alt="The Wastes Map">
+              <canvas id="heatmap-canvas" width="800" height="600"></canvas>
+              <div id="heatmap-tooltip"></div>
+            </div>
+
+            <div class="mt-8">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-[#2E7D32]">Flower Legend</h3>
+                <button onclick="resetAllFilters()"
+                        class="px-5 py-2 text-sm bg-[#2E7D32] hover:bg-[#1E5F25] text-white rounded-xl transition-colors">
+                  Show All Filters
+                </button>
+              </div>
+              <div id="legend" class="flex flex-wrap gap-3"></div>
+            </div>
+
+            <div class="mt-6 text-xs text-gray-500 text-center">
+              Hover the map to see coordinates. Click legend items to filter flowers.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
   let data = {};
+  let flowerData = [];
   let extractChart = null;
+  let heatmapReady = false;
+  let heatmapTooltipBound = false;
+
+  const limits = { top: -26.1, left: -17.0, bottom: -41.5, right: 3.4 };
+
+  const flowerColors = {
+    "Bonemallow": "#f59e0b",
+    "Wraithscowl": "#a855f7",
+    "Mournweed": "#22c55e",
+    "Dusknettle": "#3b82f6",
+    "Evengleam": "#eab308",
+    "Eye-of-Night": "#ef4444"
+  };
+
+  let activeFilters = new Set();
 
   async function loadData() {
     try {
-      const response = await fetch('data.json');
-      data = await response.json();
-      
+      const [trackerRes, flowersRes] = await Promise.all([
+        fetch('data.json'),
+        fetch('wastes_flowers.json')
+      ]);
+
+      if (!trackerRes.ok) throw new Error('load failed');
+      data = await trackerRes.json();
+
+      if (flowersRes.ok) {
+        flowerData = await flowersRes.json();
+        if (!Array.isArray(flowerData)) flowerData = [];
+      }
+
       document.getElementById('last-updated').textContent = `Data last updated: ${data.lastUpdated || 'Unknown'}`;
       document.getElementById('total-flowers').textContent = data.totalFlowers || 0;
       document.getElementById('total-extracts').textContent = data.totalExtracts || 0;
 
-      // Most Picked Flower — exclude Basket
+      // Exclude Basket from "most picked" highlight
       let flowerEntries = Object.entries(data.flowerTotals || {});
       flowerEntries = flowerEntries.filter(([name]) => name !== 'Basket');
-      
-      const topFlower = flowerEntries.sort((a,b) => b[1] - a[1])[0];
-      const topExtract = Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1])[0];
+
+      const topFlower = flowerEntries.sort((a, b) => b[1] - a[1])[0];
+      const topExtract = Object.entries(data.extractTotals || {}).sort((a, b) => b[1] - a[1])[0];
 
       if (topFlower) document.getElementById('top-flower').textContent = topFlower[0];
       if (topExtract) document.getElementById('top-extract').textContent = topExtract[0];
@@ -135,8 +178,7 @@
       renderPieChart();
       showStats('flower');
     } catch (e) {
-      console.error(e);
-      alert("Could not load data.json");
+      document.getElementById('last-updated').textContent = 'Unable to load tracker data.';
     }
   }
 
@@ -161,10 +203,8 @@
     flowerSelect.onchange = () => showFlowerResults(flowerSelect.value);
     extractSelect.onchange = () => showExtractResults(extractSelect.value);
 
-    setTimeout(() => {
-      if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
-      if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
-    }, 100);
+    if (flowerSelect.options.length > 0) showFlowerResults(flowerSelect.value);
+    if (extractSelect.options.length > 0) showExtractResults(extractSelect.value);
   }
 
   function renderPieChart() {
@@ -210,10 +250,10 @@
     const byFlower = {};
     logs.forEach(log => byFlower[log.flower] = (byFlower[log.flower] || 0) + log.quantity);
 
-    const sorted = Object.entries(byFlower).sort((a,b) => b[1] - a[1]).slice(0,5);
+    const sorted = Object.entries(byFlower).sort((a, b) => b[1] - a[1]).slice(0, 5);
     let html = '<div class="space-y-3">';
     sorted.forEach(([flower, qty], i) => {
-      html += `<div class="flex justify-between bg-white p-4 rounded-2xl"><span>${i+1}. ${flower}</span><span class="font-medium">${qty}</span></div>`;
+      html += `<div class="flex justify-between bg-white p-4 rounded-2xl"><span>${i + 1}. ${flower}</span><span class="font-medium">${qty}</span></div>`;
     });
     html += '</div>';
     container.innerHTML += html;
@@ -226,13 +266,13 @@
     if (mode === 'flower') {
       html += '<th>Flower</th><th>Total Extracts</th></tr></thead><tbody>';
       Object.entries(data.flowerTotals || {})
-        .sort((a,b) => b[1] - a[1])
+        .sort((a, b) => b[1] - a[1])
         .forEach(([flower, qty]) => {
           html += `<tr><td class="font-medium">${flower}</td><td>${qty}</td></tr>`;
         });
     } else {
       html += '<th>Extract</th><th>Total Extracts</th></tr></thead><tbody>';
-      Object.entries(data.extractTotals || {}).sort((a,b) => b[1] - a[1]).forEach(([extract, qty]) => {
+      Object.entries(data.extractTotals || {}).sort((a, b) => b[1] - a[1]).forEach(([extract, qty]) => {
         html += `<tr><td class="font-medium">${extract}</td><td>${qty}</td></tr>`;
       });
     }
@@ -241,12 +281,146 @@
     container.innerHTML = html;
   }
 
+  function gameToPixel(lat, lon, w, h) {
+    const xFrac = (lon - limits.left) / (limits.right - limits.left);
+    const yFrac = (limits.top - lat) / (limits.top - limits.bottom);
+    return { x: xFrac * w, y: yFrac * h };
+  }
+
+  function drawHeatmap() {
+    const canvas = document.getElementById('heatmap-canvas');
+    const img = document.getElementById('map-img');
+    if (!canvas || !img || !img.naturalWidth) return;
+
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const radius = 10;
+    ctx.globalCompositeOperation = 'lighter';
+
+    flowerData.forEach(point => {
+      if (activeFilters.size > 0 && !activeFilters.has(point.flower)) return;
+
+      const pos = gameToPixel(point.lat, point.lon, canvas.width, canvas.height);
+      const color = flowerColors[point.flower] || '#f97316';
+
+      const grad = ctx.createRadialGradient(pos.x, pos.y, 1, pos.x, pos.y, radius);
+      grad.addColorStop(0, color + 'dd');
+      grad.addColorStop(1, color + '00');
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(pos.x - radius, pos.y - radius, radius * 2, radius * 2);
+    });
+
+    heatmapReady = true;
+  }
+
+  function buildLegend() {
+    const legend = document.getElementById('legend');
+    legend.innerHTML = '';
+
+    Object.keys(flowerColors).forEach(flower => {
+      const count = flowerData.filter(p => p.flower === flower).length;
+      const isActive = activeFilters.size === 0 || activeFilters.has(flower);
+
+      const div = document.createElement('div');
+      div.className = `legend-item ${isActive ? 'active' : ''}`;
+      div.innerHTML = `
+        <div style="width:18px;height:18px;background:${flowerColors[flower]};border-radius:9999px;box-shadow:0 0 8px ${flowerColors[flower]}"></div>
+        <span>${flower} <span class="legend-count">(${count})</span></span>
+      `;
+      div.onclick = () => toggleFilter(flower);
+      legend.appendChild(div);
+    });
+  }
+
+  function toggleFilter(flower) {
+    if (activeFilters.has(flower)) activeFilters.delete(flower);
+    else activeFilters.add(flower);
+    buildLegend();
+    drawHeatmap();
+  }
+
+  function resetAllFilters() {
+    activeFilters.clear();
+    buildLegend();
+    drawHeatmap();
+  }
+
+  function setupHeatmapTooltip() {
+    if (heatmapTooltipBound) return;
+    heatmapTooltipBound = true;
+
+    const container = document.getElementById('map-container');
+    const img = document.getElementById('map-img');
+    const tooltip = document.getElementById('heatmap-tooltip');
+
+    container.addEventListener('mousemove', e => {
+      const rect = img.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+
+      const natW = img.naturalWidth || 1024;
+      const natH = img.naturalHeight || 768;
+      const scaleX = natW / rect.width;
+      const scaleY = natH / rect.height;
+
+      const natX = (e.clientX - rect.left) * scaleX;
+      const natY = (e.clientY - rect.top) * scaleY;
+
+      const xPct = (natX / natW) * 100;
+      const yPct = (natY / natH) * 100;
+
+      const lon = limits.left + (limits.right - limits.left) * (xPct / 100);
+      const lat = limits.top - (limits.top - limits.bottom) * (yPct / 100);
+
+      const localX = e.clientX - rect.left;
+      const localY = e.clientY - rect.top;
+      tooltip.style.left = (localX + 18) + 'px';
+      tooltip.style.top = (localY + 12) + 'px';
+      tooltip.style.display = 'block';
+      tooltip.textContent = `${Math.abs(lat).toFixed(1)}${lat < 0 ? 'S' : 'N'}, ${Math.abs(lon).toFixed(1)}${lon < 0 ? 'W' : 'E'}`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  }
+
+  function initHeatmap() {
+    const img = document.getElementById('map-img');
+    const run = () => {
+      drawHeatmap();
+      buildLegend();
+      setupHeatmapTooltip();
+    };
+
+    if (img.complete && img.naturalWidth) {
+      requestAnimationFrame(run);
+    } else {
+      img.onload = () => requestAnimationFrame(run);
+    }
+  }
+
   function showSection(section) {
     document.querySelectorAll('[id$="-section"]').forEach(el => el.classList.add('hidden'));
     document.getElementById(section + '-section').classList.remove('hidden');
+
+    if (section === 'heatmap') {
+      initHeatmap();
+    }
   }
 
+  window.addEventListener('resize', () => {
+    const heatmapSection = document.getElementById('heatmap-section');
+    if (heatmapReady && heatmapSection && !heatmapSection.classList.contains('hidden')) {
+      drawHeatmap();
+    }
+  });
+
   window.onload = loadData;
-</script>
+  </script>
 </body>
 </html>
