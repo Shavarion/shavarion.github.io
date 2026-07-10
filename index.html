@@ -12,7 +12,7 @@
     <header class="flex justify-between items-center mb-10">
       <div>
         <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]"><a href="/">North Ithilien</a></h1>
-        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.1.2c</p>
+        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.1.2d</p>
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
     </header>
@@ -359,16 +359,16 @@
     const tooltip = document.getElementById('heatmap-tooltip');
 
     container.addEventListener('mousemove', e => {
-      const rect = img.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0) return;
+      const imgRect = img.getBoundingClientRect();
+      if (imgRect.width === 0 || imgRect.height === 0) return;
 
       const natW = img.naturalWidth || 1024;
       const natH = img.naturalHeight || 768;
-      const scaleX = natW / rect.width;
-      const scaleY = natH / rect.height;
+      const scaleX = natW / imgRect.width;
+      const scaleY = natH / imgRect.height;
 
-      const natX = (e.clientX - rect.left) * scaleX;
-      const natY = (e.clientY - rect.top) * scaleY;
+      const natX = (e.clientX - imgRect.left) * scaleX;
+      const natY = (e.clientY - imgRect.top) * scaleY;
 
       const xPct = (natX / natW) * 100;
       const yPct = (natY / natH) * 100;
@@ -376,12 +376,29 @@
       const lon = limits.left + (limits.right - limits.left) * (xPct / 100);
       const lat = limits.top - (limits.top - limits.bottom) * (yPct / 100);
 
-      const localX = e.clientX - rect.left;
-      const localY = e.clientY - rect.top;
-      tooltip.style.left = (localX + 18) + 'px';
-      tooltip.style.top = (localY + 12) + 'px';
-      tooltip.style.display = 'block';
       tooltip.textContent = `${Math.abs(lat).toFixed(1)}${lat < 0 ? 'S' : 'N'}, ${Math.abs(lon).toFixed(1)}${lon < 0 ? 'W' : 'E'}`;
+      tooltip.style.display = 'block';
+
+      // Position relative to map container; flip/clamp so it stays on-screen
+      const contRect = container.getBoundingClientRect();
+      const cursorX = e.clientX - contRect.left;
+      const cursorY = e.clientY - contRect.top;
+      const pad = 6;
+      const offset = 14;
+      const tw = tooltip.offsetWidth;
+      const th = tooltip.offsetHeight;
+
+      let left = cursorX + offset;
+      let top = cursorY + offset;
+
+      if (left + tw + pad > contRect.width) left = cursorX - tw - offset;
+      if (top + th + pad > contRect.height) top = cursorY - th - offset;
+
+      left = Math.max(pad, Math.min(left, contRect.width - tw - pad));
+      top = Math.max(pad, Math.min(top, contRect.height - th - pad));
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
     });
 
     container.addEventListener('mouseleave', () => {
