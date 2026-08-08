@@ -12,7 +12,7 @@
     <header class="flex justify-between items-center mb-10">
       <div>
         <h1 class="font-bold text-5xl tracking-tight text-[#2E7D32]"><a href="/">North Ithilien</a></h1>
-        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.1.2d</p>
+        <p class="text-gray-600 mt-1">Flower & Extract Tracker v0.1.4g</p>
       </div>
       <div id="last-updated" class="text-sm text-gray-500"></div>
     </header>
@@ -20,7 +20,7 @@
       <!-- Sidebar -->
       <div class="lg:col-span-3">
         <div class="bg-white/90 backdrop-blur-md rounded-3xl shadow p-6 sticky top-6">
-          <h2 class="font-semibold text-[#2E7D32] mb-4">Vibe coded by Shav</h2>
+          <h2 class="font-semibold text-[#2E7D32] mb-4">Gleefuly vibe coded by Shav</h2>
           <nav class="space-y-1">
             <a href="#" onclick="showSection('overview')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Overview</a>
             <a href="#" onclick="showSection('flower')" class="block px-4 py-3 rounded-2xl hover:bg-[#F0F4F0]">Flower Lookup</a>
@@ -107,17 +107,22 @@
 
             <div class="mt-8">
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-semibold text-[#2E7D32]">Flower Legend</h3>
+                <h3 class="text-xl font-semibold text-[#2E7D32]">Filters</h3>
                 <button onclick="resetAllFilters()"
                         class="px-5 py-2 text-sm bg-[#2E7D32] hover:bg-[#1E5F25] text-white rounded-xl transition-colors">
-                  Show All Filters
+                  Show All
                 </button>
               </div>
+
+              <h4 class="text-sm font-semibold text-gray-600 mb-2">By Extract Type</h4>
+              <div id="extract-type-legend" class="flex flex-wrap gap-3 mb-4"></div>
+
+              <h4 class="text-sm font-semibold text-gray-600 mb-2">By Flower</h4>
               <div id="legend" class="flex flex-wrap gap-3"></div>
             </div>
 
             <div class="mt-6 text-xs text-gray-500 text-center">
-              Hover the map to see coordinates. Click legend items to filter flowers.
+              Hover the map for coordinates. Filter by extract type (Violet / Golden) or individual flowers.
             </div>
           </div>
         </div>
@@ -143,7 +148,19 @@
     "Eye-of-Night": "#ef4444"
   };
 
+  // Extract type → flowers that yield that extract
+  const extractTypes = {
+    Violet: ["Wraithscowl", "Dusknettle", "Bonemallow"],
+    Golden: ["Mournweed", "Eye-of-Night", "Evengleam"]
+  };
+
+  const extractTypeColors = {
+    Violet: "#7c3aed",
+    Golden: "#ca8a04"
+  };
+
   let activeFilters = new Set();
+  let activeExtractTypes = new Set();
 
   async function loadData() {
     try {
@@ -287,6 +304,19 @@
     return { x: xFrac * w, y: yFrac * h };
   }
 
+  function filtersAreClear() {
+    return activeFilters.size === 0 && activeExtractTypes.size === 0;
+  }
+
+  function isFlowerVisible(flower) {
+    if (filtersAreClear()) return true;
+    if (activeFilters.has(flower)) return true;
+    for (const type of activeExtractTypes) {
+      if ((extractTypes[type] || []).includes(flower)) return true;
+    }
+    return false;
+  }
+
   function drawHeatmap() {
     const canvas = document.getElementById('heatmap-canvas');
     const img = document.getElementById('map-img');
@@ -302,7 +332,7 @@
     ctx.globalCompositeOperation = 'lighter';
 
     flowerData.forEach(point => {
-      if (activeFilters.size > 0 && !activeFilters.has(point.flower)) return;
+      if (!isFlowerVisible(point.flower)) return;
 
       const pos = gameToPixel(point.lat, point.lon, canvas.width, canvas.height);
       const color = flowerColors[point.flower] || '#f97316';
@@ -319,12 +349,31 @@
   }
 
   function buildLegend() {
+    const extractLegend = document.getElementById('extract-type-legend');
+    extractLegend.innerHTML = '';
+
+    Object.keys(extractTypes).forEach(type => {
+      const flowers = extractTypes[type];
+      const count = flowerData.filter(p => flowers.includes(p.flower)).length;
+      const isActive = filtersAreClear() || activeExtractTypes.has(type);
+
+      const div = document.createElement('div');
+      div.className = `legend-item ${isActive ? 'active' : ''}`;
+      div.title = flowers.join(', ');
+      div.innerHTML = `
+        <div style="width:18px;height:18px;background:${extractTypeColors[type]};border-radius:9999px;box-shadow:0 0 8px ${extractTypeColors[type]}"></div>
+        <span>${type} <span class="legend-count">(${count})</span></span>
+      `;
+      div.onclick = () => toggleExtractType(type);
+      extractLegend.appendChild(div);
+    });
+
     const legend = document.getElementById('legend');
     legend.innerHTML = '';
 
     Object.keys(flowerColors).forEach(flower => {
       const count = flowerData.filter(p => p.flower === flower).length;
-      const isActive = activeFilters.size === 0 || activeFilters.has(flower);
+      const isActive = isFlowerVisible(flower);
 
       const div = document.createElement('div');
       div.className = `legend-item ${isActive ? 'active' : ''}`;
@@ -344,8 +393,18 @@
     drawHeatmap();
   }
 
+  function toggleExtractType(type) {
+    // Extract-type filters replace flower selections so they don't stack oddly
+    activeFilters.clear();
+    if (activeExtractTypes.has(type)) activeExtractTypes.delete(type);
+    else activeExtractTypes.add(type);
+    buildLegend();
+    drawHeatmap();
+  }
+
   function resetAllFilters() {
     activeFilters.clear();
+    activeExtractTypes.clear();
     buildLegend();
     drawHeatmap();
   }
